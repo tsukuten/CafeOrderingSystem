@@ -3,6 +3,7 @@
 * ファイル構成
 	* server: pythonのwebブラウザ間をつなげる。Hubの役割。
 	* webapp: html,css,jsを用いたWebページ。index.htmlを開けば良い。
+	* debugger: node.jsでwebappをテストするために利用した。普通に利用する分には必要ない。
 * その他の注意事項
 	* pythonは、localhost:7777をWebSocketで開いている。
 
