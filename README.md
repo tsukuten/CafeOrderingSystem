@@ -7,7 +7,7 @@
 * その他の注意事項
 	* pythonは、localhost:7777をWebSocketで開いている。
 
-## インストールの仕方
+## インストールの方法
 インストールの方法なので一回行えば良い
 * serverのインストール
 ```
@@ -22,7 +22,7 @@ $ python setup.py install
 * server
 ```
 $ cd CafeOrderingSystem/server
-$ python src/__main__.py
+$ python src/\_\_main\_\_.py
 Listening on port 7777 for clients..
 ```
 これで7777番ポートを開いてブラウザがWebソケットで接続してくるのを待つ。
@@ -40,7 +40,7 @@ add client(id=0)
 
 と表示される。
 試しにWebブラウザの`注文!`ボタンを押してみると、
-注文が追加される。(はず)
+注文が追加される。(はず)  
 されなければ、何回かWebブラウザのページをリロードしてみる。
 
 ## 現在までの実装
@@ -59,8 +59,8 @@ add client(id=0)
 * server/__main__.py
 	* handle_message(message, send)
 		* ここでサーバの振る舞いを記述できるはず。
-		* messageはブラウザから何かしらの通知がある場合にJSON(Pythonではdic型に変換している)で受け取る。
-		send(dict型のオブジェクト)と指定することで(pythonサーバに接続されているすべての)Webブラウザに(同時に)通知を送ることができる。
+		* messageはブラウザから何かしらの通知がある場合にJSON(Pythonではdic型に変換している)で受け取る。  
+		* send(dict型のオブジェクト)と指定することで(pythonサーバに接続されているすべての)Webブラウザに(同時に)通知を送ることができる。
 
 ## Future Works
 * 各機能を最低限機能できるようにする。
