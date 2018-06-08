@@ -1,0 +1,191 @@
+:root{
+  --min-button-size:44px;
+  --border-color:white;
+  --item-height:49px;
+}
+
+p {
+  margin:0;
+}
+
+#container {
+  text-align:center;
+
+}
+/* ### flexを用いたtimelineの枠組みの設定 ### */
+
+#timeline {
+  display:inline-flex;
+  flex-direction:column-reverse;
+  align-items:center;
+}
+
+.acc{
+  display:inline-flex;
+  flex-grow:1;
+}
+
+/* 人数表示部分 */
+.persons{
+  display:inline-flex;
+  width:50px;
+  flex-direction:column;
+}
+
+.persons > .id {
+  flex-grow:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;  
+}
+
+.persons > .display {
+  flex-grow:8;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.wrapb{
+  margin-left:auto;
+  flex-direction:column;
+}
+
+/* 注文内容表示部分 */
+.menu{
+  display:inline-flex;
+  flex-wrap:wrap;
+}
+
+.menu > .item {
+  display:inline-flex;
+  align-items:center;
+  width:45%;
+  flex-grow:1;
+}
+.menu > .item > .name{
+  line-height: var(--item-height);
+  height: var(--item-height);
+  flex-grow:1;
+}
+
+.state {
+  display:inline-flex;
+  flex-direction: column;
+  flex-grow:1;
+  width:80px;
+}
+
+.state > :nth-child(n){
+  display:inline-flex;
+  align-items:center;
+}
+.state > :nth-child(n) > .text{
+  flex-grow: 1;
+}
+.state > .pre{
+  flex-grow:3;
+}
+.state > .now{
+  flex-grow:2;
+}
+.state > .next{
+  flex-grow:3;
+}
+
+/* 操作（clear, order)ボタン */
+.operation{
+  display:inline-flex;
+  flex-direction:column;
+  justify-content:space-around;
+  flex-shrink:1;
+}
+
+.operation > :nth-child(n){
+  flex-grow:1;
+  display:inline-flex;
+  align-items:center;
+}
+
+.operation > :nth-child(n) > .text{
+  flex-grow:1;
+}
+
+/* ### それぞれのdiv要素や文字に関しての細かな設定　### */
+body{
+  font-size:18px;
+}
+.acc {
+  margin-bottom:10px;
+  background-color: brown;
+}
+.acc > :not(:last-child){
+  border-right: inset 3px var(--border-color);
+}
+.acc > :first-child{
+  background-color:yellow;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.acc > :last-child{
+  background-color: yellow;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.persons > .id {
+  color:gray;
+  font-size:20px;
+}
+.persons > .display > .n {
+  font-size:35px;
+}
+
+.persons > .display > .p {
+  font-size:15px;
+}
+.wrapb {
+  width:var(--min-button-size);
+  height:var(--min-button-size);
+  display:inline-flex;
+  background-color: blue;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.menu {
+}
+.menu > :nth-child(-n + 2){
+  border-bottom: inset 2px var(--border-color);
+}
+
+.menu > :nth-child(2n +1){
+  border-right: inset 2px var(--border-color);
+}
+
+.menu > .item {
+  padding-right:2px;
+  background-color: green;
+}
+.menu > .item > .name {
+  text-align:center;
+  color: white;
+}
+.down{
+  font-size:20px;
+  color:white;
+  margin:auto;
+}
+
+.operation > :nth-child(n){
+}
+
+
+/* state */
+
+.state > .pre > .text{
+  font-size:15px;
+}
+.state > .now > .text{
+}
+.state > .next {
+  font-size:15px;
+}
