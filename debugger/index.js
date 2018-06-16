@@ -39,56 +39,126 @@ reader.on('line', function(line){
 
 function makePattern(l){
   console.log(l);
-  switch(l){
-    case 'a':
-      return createA();
-    case 'b':
-      return createB();
-    default:
-      return 'default is called'
-  }
+  // switch(l){
+  //   case 'a':
+  //     return createA();
+  //   case 'b':
+  //     return createB();
+  //   case 'c':
+  //     return createC();
+  //   default:
+  //     return 'default is called'
+  // }
+  if(template[l])
+    return template[l]();
+  return null;
 }
 
 // status
 // 未着席(new), 着席(seated), 配膳済み(served), 
 // 離席(left), 完了(done)
 let accid = 0;
-let createA = () => {
-  return {
-    type:'request',
-    op:'create',
-    acc:{
-      id: accid++,
-      date: Date.now(),
-      persons:3,
-      items:{
-        coffe:1,
-        cake:3,
-        tea:1
-      },
-      total:1000,
-      status:'new',//seated,sreved,left,done
-      description:'this is test account'
+let template = {
+  a: () => {
+    return {
+      type:'request',
+      op:'create',
+      acc:{
+        id: accid++,
+        date: Date.now(),
+        persons:3,
+        items:{
+          coffe:1,
+          cake:3,
+          tea:1
+        },
+        total:1000,
+        status:'new',//seated,sreved,left,done
+        description:'this is test account'
+      }
     }
-  }
+  },
+  b: () => {
+    return {
+      type:'request',
+      op:'create',
+      acc:{
+        id: accid++,
+        date: Date.now(),
+        persons:15,
+        items:{
+          coffe:1,
+          cake:2,
+        },
+        total:1000,
+        status:'new',//seated,sreved,left,done
+        description:'this is test account'
+      }
+    }
+  },
+  c:() => {
+    return {
+      type:'request',
+      op:'create',
+      acc:{
+        id: accid++,
+        date: Date.now(),
+        persons:15,
+        items:{
+          icecoffe:1,
+          hotcoffe:1,
+          cake:2,
+        },
+        total:1000,
+        status:'new',//seated,sreved,left,done
+        description:'this is test account'
+      }
+    }
+  },
+  d:() => {
+    return {
+      type:'request',
+      op:'create',
+      acc:{
+        id: accid++,
+        date: Date.now(),
+        persons:15,
+        items:{
+          icecoffe:1,
+          hotcoffe:1,
+          cake:2,
+          hottea:1,
+          icetea:1,
+          other:100
+        },
+        total:1000,
+        status:'new',//seated,sreved,left,done
+        description:'this is test account'
+      }
+    }
+  },
+  e:() => {
+    return {
+      type:'request',
+      op:'create',
+      acc:{
+        id: accid++,
+        date: Date.now(),
+        persons:15,
+        items:{
+          icecoffe:1,
+          hotcoffe:1,
+          cake:0,
+          hottea:0,
+          icetea:0,
+          other:10
+        },
+        total:1000,
+        status:'new',//seated,sreved,left,done
+        description:'this is test account'
+      }
+    }
+  }  
 }
 
-let createB = () => {
-  return {
-    type:'request',
-    op:'create',
-    acc:{
-      id: accid++,
-      date: Date.now(),
-      persons:15,
-      items:{
-        coffe:1,
-        cake:2,
-      },
-      total:1000,
-      status:'new',//seated,sreved,left,done
-      description:'this is test account'
-    }
-  }
-}
 
