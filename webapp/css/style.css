@@ -1,7 +1,30 @@
 :root{
   --min-button-size:44px;
-  --border-color:white;
   --item-height:49px;
+  
+  /*Pattern1*/
+/*  --background-color:white;
+  --border-color:white;
+  --persons-color:#bf545e;
+  --items-color:#86b070;
+  --state-color:#e6d9b9;
+  --operations-color:#149bdf;
+  --downbtns-color:#a5a79a;*/
+
+  /*Pattern2*/
+  --background-color:#f8f4e6; /*象牙色*/
+  --border-color:#f8f4e6; /*象牙色*/
+  --persons-color:#f0908d; /*薄紅*/
+  --items-color:#b9d08b; /*薄若葉*/
+  --state-color:#dcdddd; /*白鼠*/
+  --operations-color:#84a2d4; /*青藤色*/
+  --downbtns-color:#dcd3b2;  /*砂色*/
+}
+body{
+  background-color: var(--background-color);
+  user-select:none;
+  -moz-user-select:none;
+  font-family: Meiryo, メイリオ, sans-serif;;
 }
 
 p {
@@ -55,6 +78,7 @@ p {
 .menu{
   display:inline-flex;
   flex-wrap:wrap;
+  width:400px;
 }
 
 .menu > .item {
@@ -117,23 +141,25 @@ body{
 }
 .acc {
   margin-bottom:10px;
-  background-color: brown;
+  /*background-color: brown;*/
 }
 .acc > :not(:last-child){
   border-right: inset 3px var(--border-color);
 }
 .acc > :first-child{
-  background-color:yellow;
-  border-radius: 10px 0px 0px 10px;
+  background-color: var(--persons-color);
+  color:white;
+  border-radius: 5px 0px 0px 5px;
 }
 
 .acc > :last-child{
-  background-color: yellow;
-  border-radius: 0px 10px 10px 0px;
+  background-color: var(--operations-color);
+  color:white;
+  border-radius: 0px 5px 5px 0px;
 }
 
 .persons > .id {
-  color:gray;
+  color:white;
   font-size:20px;
 }
 .persons > .display > .n {
@@ -147,23 +173,31 @@ body{
   width:var(--min-button-size);
   height:var(--min-button-size);
   display:inline-flex;
-  background-color: blue;
+  background-color: var(--downbtns-color);
   border-radius: 5px 5px 5px 5px;
 }
 
-.menu {
-}
-.menu > :nth-child(-n + 2){
+
+.menu > :not(:nth-child(2n + 1)){
   border-bottom: inset 2px var(--border-color);
 }
 
+.menu > :not(:nth-last-child(1)){
+  border-bottom: inset 2px var(--border-color);
+}
+
+
+
+.menu > :nth-child(2n){
+  border-right: inset 2px var(--border-color);
+}
 .menu > :nth-child(2n +1){
   border-right: inset 2px var(--border-color);
 }
 
 .menu > .item {
   padding-right:2px;
-  background-color: green;
+  background-color: var(--items-color);
 }
 .menu > .item > .name {
   text-align:center;
@@ -173,6 +207,10 @@ body{
   font-size:20px;
   color:white;
   margin:auto;
+}
+
+.state {
+  background-color:var(--state-color);
 }
 
 .operation > :nth-child(n){
