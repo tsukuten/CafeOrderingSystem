@@ -10,6 +10,7 @@ class OrderingHub():
     self.server.set_fn_client_left(self.client_left)
     self.clients = {}
     self.clientId = 0
+    self.orderId = 0;
     return
 
   def run(self):
@@ -18,7 +19,7 @@ class OrderingHub():
 
   def set_callback(self, callback):
     # self.server.set_fn_message_received(lambda client, server,message: callback(json.loads(message), self.send_all))
-    self.server.set_fn_message_received(lambda client, server,message: callback(json.loads(message), self.send_all))
+    self.server.set_fn_message_received(lambda client, server,message: callback(self, json.loads(message), self.send_all))
     return
 
   def send_all(self, message):
@@ -36,7 +37,7 @@ class OrderingHub():
   
   def client_left(self, client, server):
     print('closing clientid={}'.format(client['id']))
-    #del self.clients[client['id']]
+    del self.clients[client['id']]
     return 
 
     
