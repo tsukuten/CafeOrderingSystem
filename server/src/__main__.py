@@ -22,21 +22,15 @@ import json
 #   }
 # }
 
-def handle_message(message, send):
+def handle_message(self, message, send):
   # messageはdictonary型。注文の内容は以下のように取得する。
   # 上の注文内容のdictonaryの例を参考に値を参照できる。
 
   print(type(message))
-  print(message['type'])
-  print(message['acc']['items']['coffe'])
-
-
-  #
-  # ここで注文の管理を行う。
-  # 今回はtype = request, op=createしかないが、
-  # 今後は、typeやopによって振る舞いを変える必要がある。
-  # 自分で例題を考えてこの関数になれておく。(例えば、内容を少し書き換えて送ってみるなど)
-  #
+  # print(message['acc']['id'])
+  message['acc']['id'] = self.orderId;
+  self.orderId += 1;
+  # print(message['acc']['items']['coffe'])
 
   #今回は受け取った注文内容をそのままブラウザに反映させている。
   send(message)
