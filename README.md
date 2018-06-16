@@ -56,7 +56,7 @@ add client(id=0)
 * Clear, Fix, Deleteは未実装
 
 ## pythonサーバの振る舞い
-* server/__main__.py
+* server/\_\_main\_\_.py
 	* handle_message(message, send)
 		* ここでサーバの振る舞いを記述できるはず。
 		* messageはブラウザから何かしらの通知がある場合にJSON(Pythonではdic型に変換している)で受け取る。  
